@@ -12,7 +12,7 @@
     var _this;
 
     var MOVEMENT_VELOCITY_M_PER_SEC = 0.2;
-    var POSITION_CHECK_INTERVAL_MS = 25;
+    var POSITION_CHECK_INTERVAL_MS = 70;
     var EPSILON_M = 0.01;
     var RAISE_SOUND = SoundCache.getSound(Script.resolvePath("resources/sounds/RAISE_SOUND.mp3"));
     var LOWER_SOUND = SoundCache.getSound(Script.resolvePath("resources/sounds/LOWER_SOUND.mp3"));
@@ -64,13 +64,6 @@
             }
         },
 
-        stopMoving: function(position) {
-            Entities.editEntity(_this.entityID, {
-                position: raisedPosition
-                // velocity: { x: 0, y: 0, z: 0 }
-            });
-        },
-
         // raise an object via velocity until it reaches a specific position
         raise: function() {
             // Clear check interval if one exists.
@@ -97,46 +90,30 @@
 
             playSound(RAISE_SOUND, Entities.getEntityProperties(_this.entityID, 'position').position, 0.5);
 
-            var currentYVelocity = Entities.getEntityProperties(_this.entityID, 'velocity').velocity.y;
-            print("CURRENT Y VELOCITY BEFORE CHANGING IS ", currentYVelocity);
             // Start raising the object.
             Entities.editEntity(_this.entityID, {
                 velocity: { x: 0, y: MOVEMENT_VELOCITY_M_PER_SEC, z: 0 }
             });
-            currentYVelocity = Entities.getEntityProperties(_this.entityID, 'velocity').velocity.y;
-            print("CURRENT Y VELOCITY AFTER CHANGING IS ", currentYVelocity);
-            Entities.editEntity(_this.entityID, {
-                velocity: { x: 0, y: 0.1, z: 0 }
-            });
-            currentYVelocity = Entities.getEntityProperties(_this.entityID, 'velocity').velocity.y;
-            print("CURRENT Y VELOCITY AFTER CHANGING AGAIN IS ", currentYVelocity);
+
             // Start the check interval that stops the object when it's fully raised.
             positionCheckInterval = Script.setInterval(function() {
                 var position = Entities.getEntityProperties(_this.entityID, 'position').position;
-                var stoppedMoving = false;
-                print("POSITION.Y: ", position.y, " AND RAISEDPOSITION.Y IS: ", raisedPosition.y);
+                // print("POSITION.Y: ", position.y, " AND RAISEDPOSITION.Y IS: ", raisedPosition.y);
                 if (position.y >= raisedPosition.y) {
                     print("OBJECT IS IN PLACE");
-                    _this.stopMoving(raisedPosition);
+                    Entities.editEntity(_this.entityID, {
+                        position: raisedPosition,
+                        velocity: { x: 0, y: 0, z: 0 }
+                    });
 
                     // extra check to make sure velocity gets set to 0
-                    var currentYVelocity = Entities.getEntityProperties(_this.entityID, 'velocity').velocity.y;
-                    print("CURRENT Y VELOCITY IS ", currentYVelocity);
-                    if (stoppedMoving && currentYVelocity === 0) {
-                        Script.clearInterval(positionCheckInterval);
-                        if (injector) {
-                            injector.stop();
-                        }
-                        positionCheckInterval = false;
+                    // var currentYVelocity = Entities.getEntityProperties(_this.entityID, 'velocity').velocity.y;
+                    // print("CURRENT Y VELOCITY IS ", currentYVelocity);
+                    Script.clearInterval(positionCheckInterval);
+                    if (injector) {
+                        injector.stop();
                     }
-
-                    if (currentYVelocity === 0) {
-                        print("STOPPED MOVING");
-                        stoppedMoving = true;
-                    } else {
-                        print("CURRENT Y VELOCITY IS GREATER THAN 0 NOW. OBJECT HAS NOT STOPPED MOVING");
-                        stoppedMoving = false;
-                    }
+                    positionCheckInterval = false;
                 }
             }, POSITION_CHECK_INTERVAL_MS);
         },
@@ -174,25 +151,20 @@
             // Start the check interval that stops the object when it's fully lowered.
             positionCheckInterval = Script.setInterval(function() {
                 var position = Entities.getEntityProperties(_this.entityID, 'position').position;
-                var stoppedMoving = false;
                 if (position.y <= loweredPosition.y) {
-                    _this.stopMoving(loweredPosition);
+                    Entities.editEntity(_this.entityID, {
+                        position: raisedPosition,
+                        velocity: { x: 0, y: 0, z: 0 }
+                    });
 
                     // extra check to make sure velocity gets set to 0
-                    var currentYVelocity = Entities.getEntityProperties(_this.entityID, 'velocity').velocity.y;
-                    if (stoppedMoving && currentYVelocity === 0) {
-                        Script.clearInterval(positionCheckInterval);
-                        if (injector) {
-                            injector.stop();
-                        }
-                        positionCheckInterval = false;
+                    // var currentYVelocity = Entities.getEntityProperties(_this.entityID, 'velocity').velocity.y;
+                    // print("CURRENT Y VELOCITY IS ", currentYVelocity);
+                    Script.clearInterval(positionCheckInterval);
+                    if (injector) {
+                        injector.stop();
                     }
-                    
-                    if (currentYVelocity === 0) {
-                        stoppedMoving = true;
-                    } else {
-                        stoppedMoving = false;
-                    }
+                    positionCheckInterval = false;
                 }
             }, POSITION_CHECK_INTERVAL_MS);
         },
