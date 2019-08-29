@@ -14,8 +14,11 @@
     var MOVEMENT_VELOCITY_M_PER_SEC = 0.2;
     var POSITION_CHECK_INTERVAL_MS = 70;
     var EPSILON_M = 0.01;
+    
     var RAISE_SOUND = SoundCache.getSound(Script.resolvePath("resources/sounds/RAISE_SOUND.mp3"));
     var LOWER_SOUND = SoundCache.getSound(Script.resolvePath("resources/sounds/LOWER_SOUND.mp3"));
+    var RAISE_VOLUME = 0.5;
+    var LOWER_VOLUME = 0.5;
 
     var positionCheckInterval;
     var loweredPosition;
@@ -88,7 +91,7 @@
                 return;
             }
 
-            playSound(RAISE_SOUND, Entities.getEntityProperties(_this.entityID, 'position').position, 0.5);
+            playSound(RAISE_SOUND, Entities.getEntityProperties(_this.entityID, 'position').position, RAISE_VOLUME);
 
             // Start raising the object.
             Entities.editEntity(_this.entityID, {
@@ -98,7 +101,7 @@
             // Start the check interval that stops the object when it's fully raised.
             positionCheckInterval = Script.setInterval(function() {
                 var position = Entities.getEntityProperties(_this.entityID, 'position').position;
-                // print("POSITION.Y: ", position.y, " AND RAISEDPOSITION.Y IS: ", raisedPosition.y);
+                print("POSITION.Y: ", position.y, " AND RAISEDPOSITION.Y IS: ", raisedPosition.y);
                 if (position.y >= raisedPosition.y) {
                     print("OBJECT IS IN PLACE");
                     Entities.editEntity(_this.entityID, {
@@ -106,9 +109,6 @@
                         velocity: { x: 0, y: 0, z: 0 }
                     });
 
-                    // extra check to make sure velocity gets set to 0
-                    // var currentYVelocity = Entities.getEntityProperties(_this.entityID, 'velocity').velocity.y;
-                    // print("CURRENT Y VELOCITY IS ", currentYVelocity);
                     Script.clearInterval(positionCheckInterval);
                     if (injector) {
                         injector.stop();
@@ -141,7 +141,7 @@
                 return;
             }
 
-            playSound(LOWER_SOUND, Entities.getEntityProperties(_this.entityID, 'position').position, 0.5);
+            playSound(LOWER_SOUND, Entities.getEntityProperties(_this.entityID, 'position').position, LOWER_VOLUME);
 
             // Start lowering the object.
             Entities.editEntity(_this.entityID, {
