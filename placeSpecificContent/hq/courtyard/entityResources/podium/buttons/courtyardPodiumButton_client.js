@@ -12,10 +12,12 @@
 (function() {
 
     var BUTTON_PRESS_OFFSET = 0.02;
-    var DEBUG = 0;
+    var DEBUG = 1;
     var GREEN = "https://hifi-content.s3.amazonaws.com/jimi/environment/201802_Shop/buttons/buttonGreen.fbx";
-    var TABLE_ID = "{7efa2a02-854f-4fca-a08a-40acca569a0d}";
-    var FLOOR_ID = "{0e956af0-2d15-4719-9376-9dfcb455b495}";
+    var TABLE_ID = "{49af7e55-5915-4d15-a97c-682750564665}";
+    var FLOOR_ID = "{e923b8ff-4c58-4bfa-9901-0fd4b3b19e30}";
+    var HAPTIC_STRENGTH = 1;
+    var HAPTIC_DURATION = 20;
 
     var position;
     var _this;
@@ -76,8 +78,7 @@
         pressButton: function(){
             _this.color = Entities.getEntityProperties(_this.entityID, 'modelURL').modelURL;
             if (_this.color === GREEN) {
-                var HAPTIC_STRENGTH = 1;
-                var HAPTIC_DURATION = 20;
+                
                 Controller.triggerHapticPulse(HAPTIC_STRENGTH, HAPTIC_DURATION, currentHand);
                 position.y -= BUTTON_PRESS_OFFSET;
                 if (_this.type === "open") {
@@ -101,7 +102,6 @@
                 }
                 Entities.callEntityServerMethod(_this.entityID, 'lowerButton');
                 otherButtons.forEach(function(otherButton) {
-                    print("otherButton: ", otherButton);
                     Entities.callEntityServerMethod(otherButton, 'raiseButton');
                 });
             }

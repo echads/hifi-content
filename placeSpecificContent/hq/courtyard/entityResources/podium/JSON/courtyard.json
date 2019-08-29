@@ -4,7 +4,7 @@
     {
     "id": "{eed62413-5bab-4724-a9b4-45cdc6ce876f}",
     "type": "Model",
-    "lastEdited": 1563315920043563,
+    "lastEdited": 1563397483106769,
     "parentID": "{40bbcbc6-af2c-45cf-bc7c-691987e665bc}",
     "name": "Courtyard Podium Button Stage",
     "position": {
@@ -24,7 +24,7 @@
         "w": 0.7070878744125366
     },
     "created": 1563296591251047,
-    "lastEditedBy": "{117189ab-0601-49b1-a8af-8f085c701906}",
+    "lastEditedBy": "{fa396a6f-03de-4bb7-8501-342cf3513351}",
     "queryAACube": {
         "x": -1.6798505783081055,
         "y": -8.978194236755371,
@@ -65,7 +65,7 @@
     {
     "id": "{a3cc2998-c37a-4c5f-961e-4ee95ca13e83}",
     "type": "Model",
-    "lastEdited": 1563315920042729,
+    "lastEdited": 1563397483106026,
     "parentID": "{40bbcbc6-af2c-45cf-bc7c-691987e665bc}",
     "name": "Courtyard Podium Button Open",
     "position": {
@@ -85,7 +85,7 @@
         "w": 0.7070878744125366
     },
     "created": 1563296501388751,
-    "lastEditedBy": "{117189ab-0601-49b1-a8af-8f085c701906}",
+    "lastEditedBy": "{fa396a6f-03de-4bb7-8501-342cf3513351}",
     "queryAACube": {
         "x": -1.679823875427246,
         "y": -8.998199462890625,
@@ -126,7 +126,7 @@
     {
     "id": "{0d447619-2336-4ff7-abde-cd347a683a23}",
     "type": "Text",
-    "lastEdited": 1563313988080227,
+    "lastEdited": 1563397750372970,
     "parentID": "{40bbcbc6-af2c-45cf-bc7c-691987e665bc}",
     "name": "Courtyard Podium Button Label",
     "position": {
@@ -146,7 +146,7 @@
         "w": 0.49996185302734375
     },
     "created": 1563233652673334,
-    "lastEditedBy": "{33d61945-cf24-47fe-8307-eca7ef24e97d}",
+    "lastEditedBy": "{eef10c76-f568-42ea-b354-9db130ccfe2b}",
     "queryAACube": {
         "x": -1.5609924793243408,
         "y": -8.95517349243164,
@@ -154,6 +154,7 @@
         "scale": 0.1381794512271881
     },
     "grab": {
+        "grabbable": false,
         "equippableLeftRotation": {
             "x": -0.0000152587890625,
             "y": -0.0000152587890625,
@@ -183,7 +184,7 @@
     {
     "id": "{824a52c6-04d6-4a3e-a25d-24f5ead8339e}",
     "type": "Text",
-    "lastEdited": 1563315945564581,
+    "lastEdited": 1563397755404936,
     "parentID": "{40bbcbc6-af2c-45cf-bc7c-691987e665bc}",
     "name": "Courtyard Podium Button Label",
     "position": {
@@ -203,7 +204,7 @@
         "w": 0.49996185302734375
     },
     "created": 1563233468278571,
-    "lastEditedBy": "{33d61945-cf24-47fe-8307-eca7ef24e97d}",
+    "lastEditedBy": "{eef10c76-f568-42ea-b354-9db130ccfe2b}",
     "queryAACube": {
         "x": -1.555859088897705,
         "y": -8.950075149536133,
@@ -211,6 +212,7 @@
         "scale": 0.12795980274677277
     },
     "grab": {
+        "grabbable": false,
         "equippableLeftRotation": {
             "x": -0.0000152587890625,
             "y": -0.0000152587890625,
@@ -240,7 +242,7 @@
     {
     "id": "{4ab98d9e-7481-4eb6-9684-f5972de81625}",
     "type": "Model",
-    "lastEdited": 1563315920044186,
+    "lastEdited": 1563397483106488,
     "parentID": "{40bbcbc6-af2c-45cf-bc7c-691987e665bc}",
     "name": "Courtyard Podium Button Table",
     "position": {
@@ -260,7 +262,7 @@
         "w": 0.7070878744125366
     },
     "created": 1563296609026752,
-    "lastEditedBy": "{117189ab-0601-49b1-a8af-8f085c701906}",
+    "lastEditedBy": "{fa396a6f-03de-4bb7-8501-342cf3513351}",
     "queryAACube": {
         "x": -1.6798802614212036,
         "y": -8.978187561035156,
@@ -301,7 +303,7 @@
     {
     "id": "{2c12fd06-623b-4ae4-a12d-8457aaefac44}",
     "type": "Text",
-    "lastEdited": 1563313988079976,
+    "lastEdited": 1563397753598076,
     "parentID": "{40bbcbc6-af2c-45cf-bc7c-691987e665bc}",
     "name": "Courtyard Podium Button Label",
     "position": {
@@ -321,7 +323,7 @@
         "w": 0.49996185302734375
     },
     "created": 1563233660768334,
-    "lastEditedBy": "{33d61945-cf24-47fe-8307-eca7ef24e97d}",
+    "lastEditedBy": "{eef10c76-f568-42ea-b354-9db130ccfe2b}",
     "queryAACube": {
         "x": -1.5599764585494995,
         "y": -8.954123497009277,
@@ -329,6 +331,7 @@
         "scale": 0.13610275089740753
     },
     "grab": {
+        "grabbable": false,
         "equippableLeftRotation": {
             "x": -0.0000152587890625,
             "y": -0.0000152587890625,
@@ -356,9 +359,68 @@
     "isFacingAvatar": false
 },
     {
+    "id": "{40bbcbc6-af2c-45cf-bc7c-691987e665bc}",
+    "type": "Box",
+    "lastEdited": 1563330474821216,
+    "name": "Courtyard Podium",
+    "position": {
+        "x": 0,
+        "y": 1.089517593383789,
+        "z": 1.8097097873687744
+    },
+    "dimensions": {
+        "x": 0.20000000298023224,
+        "y": 0.9470627903938293,
+        "z": 0.5600668787956238
+    },
+    "rotation": {
+        "x": -0.0000152587890625,
+        "y": -0.0000152587890625,
+        "z": -0.0000152587890625,
+        "w": 1
+    },
+    "created": 1563233179039532,
+    "lastEditedBy": "{33d61945-cf24-47fe-8307-eca7ef24e97d}",
+    "queryAACube": {
+        "x": -0.5591517686843872,
+        "y": 0.5303658246994019,
+        "z": 1.2505580186843872,
+        "scale": 1.1183035373687744
+    },
+    "grab": {
+        "grabbable": false,
+        "equippableLeftRotation": {
+            "x": -0.0000152587890625,
+            "y": -0.0000152587890625,
+            "z": -0.0000152587890625,
+            "w": 1
+        },
+        "equippableRightRotation": {
+            "x": -0.0000152587890625,
+            "y": -0.0000152587890625,
+            "z": -0.0000152587890625,
+            "w": 1
+        }
+    },
+    "damping": 0,
+    "angularDamping": 0,
+    "scriptTimestamp": 1563313988078,
+    "color": {
+        "red": 0,
+        "green": 0,
+        "blue": 0
+    },
+    "shape": "Cube",
+    "clientOnly": false,
+    "avatarEntity": false,
+    "localEntity": false,
+    "faceCamera": false,
+    "isFacingAvatar": false
+},
+    {
     "id": "{0e956af0-2d15-4719-9376-9dfcb455b495}",
     "type": "Shape",
-    "lastEdited": 1563315844028291,
+    "lastEdited": 1563397476938706,
     "name": "Courtyard Floor",
     "position": {
         "x": 0.5140936374664307,
@@ -377,7 +439,7 @@
         "w": 1
     },
     "created": 1563309290505919,
-    "lastEditedBy": "{117189ab-0601-49b1-a8af-8f085c701906}",
+    "lastEditedBy": "{fa396a6f-03de-4bb7-8501-342cf3513351}",
     "queryAACube": {
         "x": -4.11138916015625,
         "y": -4.062782287597656,
@@ -418,7 +480,7 @@
     {
     "id": "{7efa2a02-854f-4fca-a08a-40acca569a0d}",
     "type": "Shape",
-    "lastEdited": 1563315929581314,
+    "lastEdited": 1563397492637300,
     "name": "Courtyard Table",
     "position": {
         "x": 0.5140936374664307,
@@ -437,7 +499,7 @@
         "w": 1
     },
     "created": 1563234691591416,
-    "lastEditedBy": "{117189ab-0601-49b1-a8af-8f085c701906}",
+    "lastEditedBy": "{fa396a6f-03de-4bb7-8501-342cf3513351}",
     "queryAACube": {
         "x": -1.617866039276123,
         "y": -2.1319596767425537,
@@ -469,66 +531,8 @@
     "localEntity": false,
     "faceCamera": false,
     "isFacingAvatar": false
-},
-    {
-    "id": "{40bbcbc6-af2c-45cf-bc7c-691987e665bc}",
-    "type": "Box",
-    "lastEdited": 1563315940673068,
-    "name": "Courtyard Podium",
-    "position": {
-        "x": 0,
-        "y": 1.089517593383789,
-        "z": 1.8097097873687744
-    },
-    "dimensions": {
-        "x": 0.20000000298023224,
-        "y": 0.9470627903938293,
-        "z": 0.5600668787956238
-    },
-    "rotation": {
-        "x": -0.0000152587890625,
-        "y": -0.0000152587890625,
-        "z": -0.0000152587890625,
-        "w": 1
-    },
-    "created": 1563233179039532,
-    "lastEditedBy": "{33d61945-cf24-47fe-8307-eca7ef24e97d}",
-    "queryAACube": {
-        "x": -0.5591517686843872,
-        "y": 0.5303658246994019,
-        "z": 1.2505580186843872,
-        "scale": 1.1183035373687744
-    },
-    "grab": {
-        "equippableLeftRotation": {
-            "x": -0.0000152587890625,
-            "y": -0.0000152587890625,
-            "z": -0.0000152587890625,
-            "w": 1
-        },
-        "equippableRightRotation": {
-            "x": -0.0000152587890625,
-            "y": -0.0000152587890625,
-            "z": -0.0000152587890625,
-            "w": 1
-        }
-    },
-    "damping": 0,
-    "angularDamping": 0,
-    "scriptTimestamp": 1563313988078,
-    "color": {
-        "red": 0,
-        "green": 0,
-        "blue": 0
-    },
-    "shape": "Cube",
-    "clientOnly": false,
-    "avatarEntity": false,
-    "localEntity": false,
-    "faceCamera": false,
-    "isFacingAvatar": false
 }
     ],
-  "Id": "{cac28b22-8f30-4428-860f-95a1571d49e1}",
+  "Id": "{071ed1b9-3e48-4d74-9fc8-5843aefd7eae}",
   "Version": 122
 }

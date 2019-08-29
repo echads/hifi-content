@@ -11,7 +11,7 @@
 (function() {
 
     var BUTTON_PRESS_OFFSET = 0.02;
-    var DEFAULT_LOCAL_Y_POSITION_M = 0.4771347;
+    var DEFAULT_LOCAL_Y_POSITION_M = 3.1163;
     var RED = "https://hifi-content.s3.amazonaws.com/jimi/environment/201802_Shop/buttons/buttonRed.fbx";
     var GREEN = "https://hifi-content.s3.amazonaws.com/jimi/environment/201802_Shop/buttons/buttonGreen.fbx";
 
