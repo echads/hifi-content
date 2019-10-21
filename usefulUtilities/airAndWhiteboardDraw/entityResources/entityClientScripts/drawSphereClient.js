@@ -140,7 +140,6 @@
                 return;
             }
             _this.color = properties.color;
-            _this.texture = parsedUserData.textureURL;
             _this.colorPaletteID = parsedUserData.colorPaletteID;
             _this.whiteboard = Entities.getEntityProperties(_this.colorPaletteID, 'parentID').parentID;
             _this.whiteboardParts = Entities.getChildrenIDs(_this.whiteboard);
@@ -239,7 +238,6 @@
                 lineProperties.normals = [previousNormal, currentNormal];
                 lineProperties.strokeWidths = [previousStrokeWidth, currentStrokeWidth];
                 lineProperties.color = _this.color;
-                lineProperties.textures = _this.texture;
                 if (polyLine && _this.whiteboard) {
                     Entities.editEntity(polyLine, { parentID: _this.whiteboard });
                 }

@@ -1,5 +1,5 @@
 //
-//  drawSphereRemoverClient.js
+//  whiteboardZoneClient.js
 //
 //  created by Rebecca Stankus on 03/28/19
 //  Copyright 2019 High Fidelity, Inc.
