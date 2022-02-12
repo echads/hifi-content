@@ -38,7 +38,7 @@
                 "y": -0.7328450679779053,
                 "z": -0.0017242431640625
             },
-            "script": "https://hifi-content.s3.amazonaws.com/rebecca/Laundry/laundry.js",
+            "script": "https://raw.githubusercontent.com/echads/hifi-content/model/DomainContent/AvatarStore/Laundry/laundry.js",
             "scriptTimestamp": 1506442804304,
             "shapeType": "simple-hull",
             "type": "Model",
@@ -52,7 +52,7 @@
                 "y": 1.0263642072677612,
                 "z": 0.38194119930267334
             },
-            "filterURL": "https://hifi-content.s3.amazonaws.com/rebecca/Laundry/laundryZone.js",
+            "filterURL": "https://raw.githubusercontent.com/echads/hifi-content/model/DomainContent/AvatarStore/Laundry/laundryZone.js",
             "id": "{ca358284-de7b-4acc-b0c9-b3a7ad51b628}",
             "lastEdited": 1506388635825245,
             "lastEditedBy": "{bf243266-3d3f-448c-8164-ee896c3a7dd5}",
