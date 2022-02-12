@@ -17,7 +17,7 @@
             "id": "{95eb06f6-6901-424d-8eec-a2a38a2f6b01}",
             "lastEdited": 1506443383095127,
             "lastEditedBy": "{1872d5d3-2e51-4226-b542-4ff3bce79f1a}",
-            "modelURL": "https://hifi-content.s3.amazonaws.com/rebecca/Laundry/Hamper.obj",
+            "modelURL": "https://raw.githubusercontent.com/echads/hifi-content/model/DomainContent/AvatarStore/Laundry/Hamper.obj",
             "name": "Laundry Hamper",
             "owningAvatarID": "{00000000-0000-0000-0000-000000000000}",
             "parentID": "{ca358284-de7b-4acc-b0c9-b3a7ad51b628}",
