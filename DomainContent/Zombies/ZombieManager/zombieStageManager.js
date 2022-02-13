@@ -14,7 +14,7 @@
 
 (function () {
     var APP_NAME = "ZOMBIES";
-    var APP_URL = Script.resolvePath("./zombieStageManager.html");
+    var APP_URL = Script.resolvePath("https://echads.github.io/hifi-content/DomainContent/Zombies/ZombieManager/zombieStageManager.html");
     var APP_ICON = Script.resolvePath("icons8-zombie-unfilled-50.png");
     var APP_ICON_ACTIVE = Script.resolvePath("icons8-zombie-filled-50.png");
     var zombiePositions = Script.require("./zombiePositions.js");
