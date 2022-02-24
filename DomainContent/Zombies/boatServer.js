@@ -18,7 +18,7 @@
     var AUDIO_VOLUME_LEVEL = 0.2;
     var DEBUG = 0;
     var TARGET_X_POSITION_AWAY = -36.2899;
-    var BOAT_HORN_SOUND = "sounds/346108__limetoe__boat-horn.wav";
+    var BOAT_HORN_SOUND = "https://echads.github.io/hifi-content/DomainContent/Zombies/sounds/346108__limetoe__boat-horn.wav";
 
     var _this;
     var currentPosition = JSON.parse(JSON.stringify(BOAT_DOCKED_POSITION));
