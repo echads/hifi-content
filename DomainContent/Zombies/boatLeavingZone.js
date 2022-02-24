@@ -13,8 +13,8 @@
     var DEBUG = 0;
     var AUDIO_VOLUME_LEVEL = 0.5;
     var NEGATIVE = -1;
-    var SURVIVOR_SCRIPT = "https://hifi-content.s3.amazonaws.com/davidback/development/zombies/zombieSurvivorScript.js";
-    var BOAT_HORN_SOUND = "sounds/346108__limetoe__boat-horn.wav";
+    var SURVIVOR_SCRIPT = "https://echads.github.io/hifi-content/DomainContent/Zombies/zombieSurvivorScript.js";
+    var BOAT_HORN_SOUND = "https://echads.github.io/hifi-content/DomainContent/Zombies/sounds/346108__limetoe__boat-horn.wav";
 
     var hasLeft = false;
     var sound;
