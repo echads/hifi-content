@@ -10,7 +10,7 @@
 var CHANNEL_NAME = "ZOMBIE_BITE";
 var SEARCH_RANGE = 2;
 var BITE_RANGE = 0.3;
-var BITE_SOUND = SoundCache.getSound("atp:/zombieBite.wav");
+var BITE_SOUND = SoundCache.getSound("https://hifi-content.s3.amazonaws.com/davidback/development/zombies/zombieBite.wav");
 var BITE_SOUND_VOLUME = 0.5;
 var TRIGGER_CONTROLS = [Controller.Standard.LT, Controller.Standard.RT];
 var TRIGGER_THRESHOLD = 0.9;
