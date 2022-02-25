@@ -13,8 +13,8 @@
     var AUDIO_VOLUME_LEVEL = 0.8;
     var DEBUG = 0;
     var NEGATIVE = -1;
-    var EXPLOSION ="sounds/156031__iwiploppenisse__explosion.wav";
-    var SURVIVOR_SCRIPT = "https://hifi-content.s3.amazonaws.com/davidback/development/zombies/zombieSurvivorScript.js";
+    var EXPLOSION ="https://echads.github.io/hifi-content/DomainContent/Zombies/sounds/156031__iwiploppenisse__explosion.wav";
+    var SURVIVOR_SCRIPT = "https://echads.github.io/hifi-content/DomainContent/Zombies/zombieSurvivorScript.js";
 
     var sound;
     var _this;
