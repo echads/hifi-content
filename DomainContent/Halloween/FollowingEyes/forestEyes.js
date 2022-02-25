@@ -39,7 +39,7 @@
             eyesParents.forEach(function(parentObject) {
                 var eyeSize = Math.random() * MAX_EYE_SIZE - MIN_EYE_SIZE + MIN_EYE_SIZE;
                 eyes.push(Overlays.addOverlay("model", {
-                    url: Script.resolvePath("models/catEye.fbx"),
+                    url: Script.resolvePath("https://echads.github.io/hifi-content/DomainContent/Halloween/models/catEye.fbx"),
                     dimensions: { x: eyeSize, y: eyeSize, z: eyeSize },
                     name: "CC-BY Jimi",
                     parentID: parentObject,
@@ -49,7 +49,7 @@
                 }));
     
                 eyes.push(Overlays.addOverlay("model", {
-                    url: Script.resolvePath("models/catEye.fbx"),
+                    url: Script.resolvePath("https://echads.github.io/hifi-content/DomainContent/Halloween/models/catEye.fbx"),
                     dimensions: { x: eyeSize, y: eyeSize, z: eyeSize },
                     name: "CC-BY Jimi",
                     parentID: parentObject,
