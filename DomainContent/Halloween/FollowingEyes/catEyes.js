@@ -34,7 +34,7 @@
 
         enterEntity: function() {
             leftEyeOverlay = Overlays.addOverlay("model", {
-                url: Script.resolvePath("models/catEye.fbx"),
+                url: Script.resolvePath("https://echads.github.io/hifi-content/DomainContent/Halloween/models/catEye.fbx"),
                 dimensions: { x: 0.029752083122730255, y: 0.029752083122730255, z: 0.029752083122730255 },
                 name: "Cat Eye CC-BY Poly by Google",
                 parentID: cat,
@@ -44,7 +44,7 @@
             });
 
             rightEyeOverlay = Overlays.addOverlay("model", {
-                url: Script.resolvePath("models/catEye.fbx"),
+                url: Script.resolvePath("https://echads.github.io/hifi-content/DomainContent/Halloween/models/catEye.fbx"),
                 dimensions: { x: 0.03403420001268387, y: 0.03403420001268387, z: 0.03403420001268387 },
                 name: "Cat Eye CC-BY Poly by Google",
                 parentID: cat,
