@@ -37,7 +37,7 @@
 
     this.preload = function(entityID) {
         _this.entityID = entityID;
-        sound = SoundCache.getSound(Script.resolvePath("../sounds/156031__iwiploppenisse__explosion.wav"));
+        sound = SoundCache.getSound(Script.resolvePath("https://echads.github.io/hifi-content/DomainContent/Zombies/sounds/156031__iwiploppenisse__explosion.wav"));
         restoreAll();
     };
 
