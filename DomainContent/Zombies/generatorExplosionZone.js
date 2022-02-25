@@ -9,7 +9,7 @@
 //
 
 (function () {
-    var FIRE_BY_GENERATOR = "{84d98c70-fe1c-4624-a8ba-d0e9171a1e46}";
+    var FIRE_BY_GENERATOR = "{12067fc3-4b43-467a-8bbb-cd8a86a78ad6}";
     var AUDIO_VOLUME_LEVEL = 0.8;
     var DEBUG = 0;
     var NEGATIVE = -1;
