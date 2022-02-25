@@ -11,7 +11,7 @@
 (function () {
     var MANNEQUIN_ORIGINAL = "{8b0321d5-4d01-445c-9009-8c5a0d6cd6bb}";
     var LIGHTS_THAT_EXTINGUISH = ["{58bbee39-054d-485e-8954-9708d0f33745}", "{288dfe86-9370-4147-9f1b-6fb146f852a1}", 
-        "{e4c4dc94-74f6-4f2c-aadc-615e0307ee8f}", "{233044ea-bf3b-4998-b7f9-96a985e2a8a0}",
+        "{233044ea-bf3b-4998-b7f9-96a985e2a8a0}",
         "{0a081472-24a8-4ce9-a35e-d57f2ae74d8e}", "{5974b777-f4da-4f89-bb11-0462589ada21},",
         "{df292af4-328a-458e-a243-e9d346acf5c2}", "{8b789e54-5195-4b68-a64a-c41656afdba3}"];
     var LIGHTS_THAT_FLICKER = ["{49e0bb3b-0875-4f23-bac2-00254033ce04}", "{f3a74871-6f21-4f8b-ba12-f60b79d15660}",
@@ -19,7 +19,7 @@
     var GLASS_PANES = ["{fedd0a44-afcf-4871-ba48-565caf507b7b}", "{eb6e1e0d-2e74-417b-af8a-634654d63e93}",
         "{8f2d5f6c-ee02-4af5-8f68-3a99a60abfa3}"];
     var EXPLOSION_FIRE = "{3808c266-c714-4a79-939a-060992e66e33}";
-    var EXPLOSION_SMOKE = "{c9ab074e-b64f-491e-a1cf-7187a79abcef}";
+    var EXPLOSION_SMOKE = "{1d73cc79-d812-4e7a-9fa0-027c3f845655}";
     var RESET_TIMEOUT_MS = 60000;
     var FIRE_CHANGE_INTERVAL_MS = 10;
     var RADIUS_SPREAD_MAX = 9;
