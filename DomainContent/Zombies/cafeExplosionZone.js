@@ -1,7 +1,7 @@
 (function () {
     var FIRE_BY_CAFE = "{b908d304-cbee-4eb0-85ed-e549264de3f4}";
     var AUDIO_VOLUME_LEVEL = 0.8;
-    var EXPLOSION_SOUND = "sounds/156031__iwiploppenisse__explosion.wav";
+    var EXPLOSION_SOUND = "https://echads.github.io/hifi-content/DomainContent/Zombies/sounds/156031__iwiploppenisse__explosion.wav";
 
     var sound;
 
