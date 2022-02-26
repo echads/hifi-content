@@ -28,7 +28,7 @@
     var YELLOW = "https://hifi-content.s3.amazonaws.com/jimi/environment/201802_Shop/buttons/buttonYellow.fbx";
     var RED = "https://hifi-content.s3.amazonaws.com/jimi/environment/201802_Shop/buttons/buttonRed.fbx";
     var GREEN = "https://hifi-content.s3.amazonaws.com/jimi/environment/201802_Shop/buttons/buttonGreen.fbx";
-    var GENERATOR_SOUND = "sounds/259912__daroc__dieselgenerator.wav";
+    var GENERATOR_SOUND = "https://echads.github.io/hifi-content/DomainContent/Zombies/sounds/259912__daroc__dieselgenerator.wav";
 
     var _this;
     var currentHand = 0;
