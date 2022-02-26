@@ -10,20 +10,20 @@
 /* global Pointers */
 
 (function() {
-    var BUTTON_PRESS_OFFSET = 0.02;
+    //var BUTTON_PRESS_OFFSET = 0.02;
     var DOWN_TIME_MS = 3000;
     var DISABLED_TIME_MS = 10000;
     var NEGATIVE = -1;
-    var SEARCH_RADIUS = 100;
+    //var SEARCH_RADIUS = 100;
     var NO_ID = "{00000000-0000-0000-0000-000000000000}";
     var BOAT_LEAVING_ZONE = "{ff533382-7aa5-4959-97ec-b0035926de91}";
     //var GATE_NUMBER_INDEX = 12;
     var DEBUG = 0;
-    var YELLOW = "https://hifi-content.s3.amazonaws.com/jimi/environment/201802_Shop/buttons/buttonYellow.fbx";
-    var RED = "https://hifi-content.s3.amazonaws.com/jimi/environment/201802_Shop/buttons/buttonRed.fbx";
-    var GREEN = "https://hifi-content.s3.amazonaws.com/jimi/environment/201802_Shop/buttons/buttonGreen.fbx";
+    //var YELLOW = "https://hifi-content.s3.amazonaws.com/jimi/environment/201802_Shop/buttons/buttonYellow.fbx";
+    //var RED = "https://hifi-content.s3.amazonaws.com/jimi/environment/201802_Shop/buttons/buttonRed.fbx";
+    //var GREEN = "https://hifi-content.s3.amazonaws.com/jimi/environment/201802_Shop/buttons/buttonGreen.fbx";
     
-    var position;
+    //var position;
     //var gate;
     
     var AUDIO_VOLUME_LEVEL = 0.2;
@@ -99,8 +99,8 @@
                     print("one green button");
                 }
             }
-            var properties = Entities.getEntityProperties(_this.entityID, ['position', 'name']);
-            position = properties.position;
+            //var properties = Entities.getEntityProperties(_this.entityID, ['position', 'name']);
+            //position = properties.position;
             _this.type = _this.getButtonType();
             if (DEBUG) {
                 print("searching for a gate...");
@@ -358,34 +358,34 @@
         },
         changeColorToGreen: function() {
             Entities.editEntity(_this.entityID, {
-                modelURL: GREEN
+                color: GREEN
             });
             _this.color = GREEN;
         },
         changeColorToRed: function() {
             Entities.editEntity(_this.entityID, {
-                modelURL: RED
+                color: RED
             });
             _this.color = RED;
         },
         changeColorToYellow: function() {
             Entities.editEntity(_this.entityID, {
-                modelURL: YELLOW
+                color: YELLOW
             });
             _this.color = YELLOW;
         },
         raiseButton: function() {
             Entities.editEntity(_this.entityID, {
-                position: position //POSITION_INACTIVE
+                position: POSITION_INACTIVE
             });
         },
         lowerButton: function() {
             var HAPTIC_STRENGTH = 1;
             var HAPTIC_DURATION = 20;
             Controller.triggerHapticPulse(HAPTIC_STRENGTH, HAPTIC_DURATION, currentHand);
-            position.y -= BUTTON_PRESS_OFFSET;
+           // position.y -= BUTTON_PRESS_OFFSET;
             Entities.editEntity(_this.entityID, {
-                position: position //POSITION_ACTIVE
+                position: POSITION_ACTIVE
             });
         },
         mousePressOnEntity: function(entityID, mouseEvent) {
