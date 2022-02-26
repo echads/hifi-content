@@ -29,7 +29,7 @@ var GAS_MAIN = "{1afbc834-d361-468a-b077-b5364cf17043}";
 var GENERATOR_BUTTON ="{f7d7ad8f-958a-4861-9cec-337642744646}";
 var BOAT = "{4691d6ad-93f5-4456-90b9-95c9f2ef00b2}";
 var BLOCK_BOAT_ACCESS = "{838f0103-1bfa-4c7c-a786-b3e8c0f71f8a}";
-var BOAT_LEAVING_ZONE = "{eaed52a6-6791-4c68-a5d3-d5efe6377d58}";
+var BOAT_LEAVING_ZONE = "{ff533382-7aa5-4959-97ec-b0035926de91}";
 
 Entities.callEntityServerMethod(BOAT, 'reset');
 Entities.editEntity(BLOCK_BOAT_ACCESS, {
