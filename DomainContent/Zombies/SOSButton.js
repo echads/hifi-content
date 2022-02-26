@@ -16,6 +16,7 @@
     var NEGATIVE = -1;
     var SEARCH_RADIUS = 100;
     var NO_ID = "{00000000-0000-0000-0000-000000000000}";
+    var BOAT_LEAVING_ZONE = "{ff533382-7aa5-4959-97ec-b0035926de91}";
     //var GATE_NUMBER_INDEX = 12;
     var DEBUG = 0;
     var YELLOW = "https://hifi-content.s3.amazonaws.com/jimi/environment/201802_Shop/buttons/buttonYellow.fbx";
@@ -239,6 +240,7 @@
                             collisionless: true
                         });
                         Entities.callEntityServerMethod(BOAT, 'approachIsland');
+                        Entities.callEntityMethod(BOAT_LEAVING_ZONE, 'reset');
                     }
                     Script.setTimeout(function() {
                         _this.changeColorToRed();
