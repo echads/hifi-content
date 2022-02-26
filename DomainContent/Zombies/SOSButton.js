@@ -15,7 +15,7 @@
     var DISABLED_TIME_MS = 10000;
     var BOAT = "{4691d6ad-93f5-4456-90b9-95c9f2ef00b2}";
     var BLOCK_BOAT_ACCESS = "{db90802f-2990-459f-a4e5-c25dd1c992a3}";
-    var BOAT_HORN_SOUND = "sounds/346108__limetoe__boat-horn.wav";
+    var BOAT_HORN_SOUND = "https://echads.github.io/hifi-content/DomainContent/Zombies/sounds/346108__limetoe__boat-horn.wav";
     var BOAT_SOUND_POSITION = {
         x:-4.8,
         y:4.5,
