@@ -74,6 +74,7 @@ var currentHealthIndex = 0;
 var debugForceRun = false;
 
 function onMessageReceived(channel, message, senderID) {
+    //ToDo: What if unable to parse the message?
     var messageData = JSON.parse(message);
     var type = messageData['type'];
     var biterID = messageData['biterID'];
