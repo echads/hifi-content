@@ -14,7 +14,7 @@
     var AUDIO_VOLUME_LEVEL = 0.2;
     var DOWN_TIME_MS = 3000;
     var DISABLED_TIME_MS = 10000;
-    var SOS_BUTTON = "{a106c159-b533-47c4-93cc-a34fc4ed9b58}";
+    var SOS_BUTTON = "{82d71777-b510-44bf-9b01-03062efc1d7f}";
     var POSITION_INACTIVE = {
         x: 3.4711,
         y: -8.9907,
