@@ -10,6 +10,21 @@
 /* global Pointers */
 
 (function() {
+    var BUTTON_PRESS_OFFSET = 0.02;
+    var DOWN_TIME_MS = 3000;
+    var DISABLED_TIME_MS = 10000;
+    var NEGATIVE = -1;
+    var SEARCH_RADIUS = 100;
+    var NO_ID = "{00000000-0000-0000-0000-000000000000}";
+    var GATE_NUMBER_INDEX = 12;
+    var DEBUG = 0;
+    var YELLOW = "https://hifi-content.s3.amazonaws.com/jimi/environment/201802_Shop/buttons/buttonYellow.fbx";
+    var RED = "https://hifi-content.s3.amazonaws.com/jimi/environment/201802_Shop/buttons/buttonRed.fbx";
+    var GREEN = "https://hifi-content.s3.amazonaws.com/jimi/environment/201802_Shop/buttons/buttonGreen.fbx";
+    
+    var position;
+    var gate;
+    
     var AUDIO_VOLUME_LEVEL = 0.2;
     var DOWN_TIME_MS = 3000;
     var DISABLED_TIME_MS = 10000;
@@ -69,6 +84,7 @@
         */
         preload: function(entityID) {
             _this.entityID = entityID;
+            sound = SoundCache.getSound(Script.resolvePath(BOAT_HORN_SOUND));
             var childIDs = Entities.getChildrenIDs(_this.entityID);
             if (childIDs[0]) {
                 _this.childButton = childIDs[0];
@@ -233,7 +249,7 @@
                     }
                     _this.lowerButton();
                     _this.changeColorToYellow();
-                    Entities.callEntityServerMethod(gate, 'closeGate');
+                    //Entities.callEntityServerMethod(gate, 'closeGate');
                     Script.setTimeout(function() {
                         _this.changeColorToRed();
                         _this.raiseButton();
@@ -251,7 +267,7 @@
                     if (DEBUG) {
                         print("calling gate open method");
                     }
-                    Entities.callEntityServerMethod(gate, 'openGate');
+                    //Entities.callEntityServerMethod(gate, 'openGate');
                     return;
                 } else if (_this.type === "synch") {
                     if (DEBUG) {
@@ -265,7 +281,7 @@
                         print("yellow is " + JSON.stringify(YELLOW));
                     }
                     if (JSON.stringify(sisterColor) === (JSON.stringify(YELLOW))) {
-                        Entities.callEntityServerMethod(gate, 'openGate');
+                        //Entities.callEntityServerMethod(gate, 'openGate');
                     }
                     return;
                 } else if (_this.type === "order") {
@@ -298,7 +314,7 @@
                                 if (DEBUG) {
                                     print("last node...calling gate open method");
                                 }
-                                Entities.callEntityServerMethod(gate, 'openGate');
+                                //Entities.callEntityServerMethod(gate, 'openGate');
                             }
                         } else {
                             if (DEBUG) {
