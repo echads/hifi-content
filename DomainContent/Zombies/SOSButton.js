@@ -16,14 +16,14 @@
     var NEGATIVE = -1;
     var SEARCH_RADIUS = 100;
     var NO_ID = "{00000000-0000-0000-0000-000000000000}";
-    var GATE_NUMBER_INDEX = 12;
+    //var GATE_NUMBER_INDEX = 12;
     var DEBUG = 0;
     var YELLOW = "https://hifi-content.s3.amazonaws.com/jimi/environment/201802_Shop/buttons/buttonYellow.fbx";
     var RED = "https://hifi-content.s3.amazonaws.com/jimi/environment/201802_Shop/buttons/buttonRed.fbx";
     var GREEN = "https://hifi-content.s3.amazonaws.com/jimi/environment/201802_Shop/buttons/buttonGreen.fbx";
     
     var position;
-    var gate;
+    //var gate;
     
     var AUDIO_VOLUME_LEVEL = 0.2;
     var DOWN_TIME_MS = 3000;
@@ -104,6 +104,7 @@
             if (DEBUG) {
                 print("searching for a gate...");
             }
+            /*
             var gateNumber = properties.name.charAt(GATE_NUMBER_INDEX);
             if (DEBUG) {
                 print("gate number is " + gateNumber);
@@ -121,6 +122,7 @@
                     return;
                 }
             });
+            */
         },
         getButtonType: function() {
             var buttonName = Entities.getEntityProperties(_this.entityID, 'name').name;
@@ -139,6 +141,7 @@
                     print("button type is synch");
                 }
                 var buttonPosition = Entities.getEntityProperties(_this.entityID, 'position').position;
+                /*
                 Entities.findEntities(buttonPosition, SEARCH_RADIUS).forEach(function(element) {
                     var name = Entities.getEntityProperties(element, 'name').name;
                     if ((name.indexOf("Button") !== NEGATIVE) && (name.indexOf("Synchronize") !== NEGATIVE)) {
@@ -158,6 +161,7 @@
                         return;
                     }
                 });
+                */
                 return "synch";
             } else if (buttonName.indexOf("By Order") !== NEGATIVE) {
                 var parent = Entities.getEntityProperties(_this.entityID, 'parentID').parentID;
@@ -339,6 +343,16 @@
                 }
             }
         },
+        changeParentColorToGreen: function() {
+            if (DEBUG) {
+                print("has parent...changing color of parent");
+            }
+            Entities.callEntityMethod(_this.parentID, 'changeColorToGreen');
+            Script.setTimeout(function() {
+                Entities.callEntityMethod(_this.parentID, 'changeColorToRed');
+                Entities.callEntityMethod(_this.parentID, 'raiseButton');
+            }, DISABLED_TIME_MS);
+        },
         changeColorToGreen: function() {
             Entities.editEntity(_this.entityID, {
                 modelURL: GREEN
@@ -405,12 +419,12 @@
                     return;
                 }
                 if (_this.type === "hold") {
-                    Entities.callEntityServerMethod(gate, 'stopMovement');
+                    //Entities.callEntityServerMethod(gate, 'stopMovement');
                     _this.changeColorToGreen();
                     _this.raiseButton();
                     return;
                 } else if (_this.type === "synch") {
-                    Entities.callEntityServerMethod(gate, 'stopMovement');
+                    //Entities.callEntityServerMethod(gate, 'stopMovement');
                     _this.changeColorToGreen();
                     _this.raiseButton();
                     return;
