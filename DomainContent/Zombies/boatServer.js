@@ -87,7 +87,7 @@
                 if (DEBUG) {
                     print("has left and has not started to come back...returning to island now");
                 }
-                returning = true;
+                _this.docked = true;
                 if (moving) {
                     Script.clearInterval(moving);
                 }
