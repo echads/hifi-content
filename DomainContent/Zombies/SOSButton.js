@@ -60,11 +60,53 @@
     };
 
     Button.prototype = {
+        /*
         preload: function(entityID) {
             _this.entityID = entityID;
             sound = SoundCache.getSound(Script.resolvePath(BOAT_HORN_SOUND));
             _this.reset();
         },
+        */
+        preload: function(entityID) {
+            _this.entityID = entityID;
+            var childIDs = Entities.getChildrenIDs(_this.entityID);
+            if (childIDs[0]) {
+                _this.childButton = childIDs[0];
+                _this.color = RED;
+                if (DEBUG) {
+                    print("one red button");
+                }
+            } else {
+                _this.color = GREEN;
+                if (DEBUG) {
+                    print("one green button");
+                }
+            }
+            var properties = Entities.getEntityProperties(_this.entityID, ['position', 'name']);
+            position = properties.position;
+            _this.type = _this.getButtonType();
+            if (DEBUG) {
+                print("searching for a gate...");
+            }
+            var gateNumber = properties.name.charAt(GATE_NUMBER_INDEX);
+            if (DEBUG) {
+                print("gate number is " + gateNumber);
+            }
+            Entities.findEntities(properties.position, SEARCH_RADIUS).forEach(function(element) {
+                var name = Entities.getEntityProperties(element, 'name').name;
+                if (DEBUG) {
+                    // print(name);
+                }
+                if ((name.indexOf("Zombie Gate") !== NEGATIVE) && (name.indexOf(gateNumber) !== NEGATIVE)) {
+                    if (DEBUG) {
+                        print("button " + _this.entityID + " is attached to gate " + element);
+                    }
+                    gate = element;
+                    return;
+                }
+            });
+        },
+        /*
         reset: function() {
             if (boatSound) {
                 boatSound.stop();
@@ -73,6 +115,8 @@
             _this.changeColorToRed();
             _this.raiseButton();
         },
+        */
+        /*
         pressButton: function(){
             if (_this.color === GREEN) {
                 _this.lowerButton();
@@ -99,35 +143,150 @@
                 }, DISABLED_TIME_MS);
             }
         },
+        */
+        pressButton: function(){
+            if (_this.color === GREEN) {
+                if (_this.type === "open") {
+                    if (DEBUG) {
+                        print("open button pressed");
+                    }
+                    _this.lowerButton();
+                    _this.changeColorToYellow();
+                    Entities.callEntityServerMethod(gate, 'openGate');
+                    Script.setTimeout(function() {
+                        _this.changeColorToRed();
+                        _this.raiseButton();
+                    }, DOWN_TIME_MS);
+                    Script.setTimeout(function() {
+                        _this.changeColorToGreen();
+                    }, DISABLED_TIME_MS);
+                    return;
+                } if (_this.type === "close") {
+                    if (DEBUG) {
+                        print("close button pressed");
+                    }
+                    _this.lowerButton();
+                    _this.changeColorToYellow();
+                    Entities.callEntityServerMethod(gate, 'closeGate');
+                    Script.setTimeout(function() {
+                        _this.changeColorToRed();
+                        _this.raiseButton();
+                    }, DOWN_TIME_MS);
+                    Script.setTimeout(function() {
+                        _this.changeColorToGreen();
+                    }, DISABLED_TIME_MS);
+                    return;
+                } else if (_this.type === "hold") {
+                    if (DEBUG) {
+                        print("button pressed");
+                    }
+                    _this.lowerButton();
+                    _this.changeColorToYellow();
+                    if (DEBUG) {
+                        print("calling gate open method");
+                    }
+                    Entities.callEntityServerMethod(gate, 'openGate');
+                    return;
+                } else if (_this.type === "synch") {
+                    if (DEBUG) {
+                        print("button pressed is synch");
+                    }
+                    _this.changeColorToYellow();
+                    _this.lowerButton();
+                    var sisterColor = Entities.getEntityProperties(_this.sisterButton, 'color').color;
+                    if (DEBUG) {
+                        print("now the sister color is " + JSON.stringify(sisterColor));
+                        print("yellow is " + JSON.stringify(YELLOW));
+                    }
+                    if (JSON.stringify(sisterColor) === (JSON.stringify(YELLOW))) {
+                        Entities.callEntityServerMethod(gate, 'openGate');
+                    }
+                    return;
+                } else if (_this.type === "order") {
+                    if (DEBUG) {
+                        print("pressed an order button");
+                    }
+                    if (_this.childButton) {
+                        if (DEBUG) {
+                            print("button has child, " + JSON.stringify(_this.childButton) + ", that must be pressed first");
+                        }
+                        var childColor = Entities.getEntityProperties(_this.childButton, 'modelURL').modelURL;
+                        if (DEBUG) {
+                            print("now the child color is " + JSON.stringify(childColor));
+                            print("yellow is " + JSON.stringify(YELLOW));
+                        }
+                        if (JSON.stringify(childColor) === (JSON.stringify(YELLOW))) {
+                            if (DEBUG) {
+                                print("child button is yellow, pushing this button now");
+                                print("button pressed");
+                            }
+                            _this.lowerButton();
+                            _this.changeColorToYellow();
+                            Script.setTimeout(function() {
+                                _this.changeColorToRed();
+                                _this.raiseButton();
+                            }, DOWN_TIME_MS);
+                            if (_this.parentID !== NO_ID) {
+                                _this.changeParentColorToGreen();
+                            } else {
+                                if (DEBUG) {
+                                    print("last node...calling gate open method");
+                                }
+                                Entities.callEntityServerMethod(gate, 'openGate');
+                            }
+                        } else {
+                            if (DEBUG) {
+                                print("child is not yellow...cannot push this one yet");
+                            }
+                        }
+                    } else {
+                        if (DEBUG) {
+                            print("no child button...pressing this one...should be yellow now");
+                        }
+                        _this.lowerButton();
+                        _this.changeColorToYellow();
+                        Script.setTimeout(function() {
+                            _this.changeColorToGreen();
+                            _this.raiseButton();
+                        }, DOWN_TIME_MS);
+                        if (_this.parentID) {
+                            _this.changeParentColorToGreen();
+                        }
+                    }
+                    return;
+                }
+            }
+        },
         changeColorToGreen: function() {
             Entities.editEntity(_this.entityID, {
-                color: GREEN
+                modelURL: GREEN
             });
             _this.color = GREEN;
         },
         changeColorToRed: function() {
             Entities.editEntity(_this.entityID, {
-                color: RED
+                modelURL: RED
             });
             _this.color = RED;
         },
         changeColorToYellow: function() {
             Entities.editEntity(_this.entityID, {
-                color: YELLOW
+                modelURL: YELLOW
             });
             _this.color = YELLOW;
         },
         raiseButton: function() {
             Entities.editEntity(_this.entityID, {
-                position: POSITION_INACTIVE
+                position: position //POSITION_INACTIVE
             });
         },
         lowerButton: function() {
             var HAPTIC_STRENGTH = 1;
             var HAPTIC_DURATION = 20;
             Controller.triggerHapticPulse(HAPTIC_STRENGTH, HAPTIC_DURATION, currentHand);
+            position.y -= BUTTON_PRESS_OFFSET;
             Entities.editEntity(_this.entityID, {
-                position: POSITION_ACTIVE
+                position: position //POSITION_ACTIVE
             });
         },
         mousePressOnEntity: function(entityID, mouseEvent) {
@@ -140,6 +299,55 @@
                 } else if (Pointers.isRightHand(mouseEvent.id)) {
                     currentHand = 1;
                 }
+            }
+            if (_this.color === GREEN) {
+                _this.pressButton();
+            }
+        },
+        startNearTrigger: function(entityID, mouseEvent) {
+            if (Pointers.isLeftHand(mouseEvent.id)) {
+                currentHand = 0;
+            } else if (Pointers.isRightHand(mouseEvent.id)) {
+                currentHand = 1;
+            }
+            if (DEBUG) {
+                print("trigger on button");
+            }
+            if (_this.color === GREEN) {
+                _this.pressButton();
+            }
+        },
+        mouseReleaseOnEntity: function(entityID, mouseEvent) {
+            if (DEBUG) {
+                if (!mouseEvent.button === "Primary") {
+                    return;
+                }
+                if (_this.type === "hold") {
+                    Entities.callEntityServerMethod(gate, 'stopMovement');
+                    _this.changeColorToGreen();
+                    _this.raiseButton();
+                    return;
+                } else if (_this.type === "synch") {
+                    Entities.callEntityServerMethod(gate, 'stopMovement');
+                    _this.changeColorToGreen();
+                    _this.raiseButton();
+                    return;
+                }
+            }
+        },
+        stopNearTrigger: function(entityID, mouseEvent) {
+            if (!mouseEvent.button === "Primary") {
+                return;
+            }
+            if (!Pointers.isMouse(mouseEvent.id)) {
+                if (Pointers.isLeftHand(mouseEvent.id)) {
+                    currentHand = 0;
+                } else if (Pointers.isRightHand(mouseEvent.id)) {
+                    currentHand = 1;
+                }
+            }
+            if (DEBUG) {
+                print("stop near trigger on button");
             }
             if (_this.color === GREEN) {
                 _this.pressButton();
