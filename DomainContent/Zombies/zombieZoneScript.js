@@ -65,6 +65,7 @@
     };
 
     ProtectedZone.prototype = {
+        /*
         preload: function(entityID) {
             _userdataProperties = JSON.parse(Entities.getEntityProperties(entityID, 'userData').userData);
             _backupLocation = _userdataProperties.rejectTeleportLocation;
@@ -76,6 +77,7 @@
             foundValidTestable = false;
             searchForMatchingMarketplaceItem();
         }
+        */
     };
 
     return new ProtectedZone();
