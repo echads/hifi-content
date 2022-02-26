@@ -228,17 +228,18 @@
                     _this.lowerButton();
                     _this.changeColorToYellow();
                     if (sound.downloaded) {
-                    if (boatSound) {
-                        boatSound.stop();
+                        if (boatSound) {
+                            boatSound.stop();
+                        }
+                        boatSound = Audio.playSound(sound, {
+                            position: BOAT_SOUND_POSITION,
+                            volume: AUDIO_VOLUME_LEVEL
+                        });
+                        Entities.editEntity(BLOCK_BOAT_ACCESS, {
+                            collisionless: true
+                        });
+                        Entities.callEntityServerMethod(BOAT, 'approachIsland');
                     }
-                    boatSound = Audio.playSound(sound, {
-                        position: BOAT_SOUND_POSITION,
-                        volume: AUDIO_VOLUME_LEVEL
-                    });
-                    Entities.editEntity(BLOCK_BOAT_ACCESS, {
-                        collisionless: true
-                    });
-                    Entities.callEntityServerMethod(BOAT, 'approachIsland');
                     Script.setTimeout(function() {
                         _this.changeColorToRed();
                         _this.raiseButton();
