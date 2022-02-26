@@ -106,6 +106,61 @@
                 }
             });
         },
+        getButtonType: function() {
+            var buttonName = Entities.getEntityProperties(_this.entityID, 'name').name;
+            if (buttonName.indexOf("Open") !== NEGATIVE) {
+                if (DEBUG) {
+                    print("button type is open");
+                }
+                return "open";
+            } else if (buttonName.indexOf("Hold") !== NEGATIVE) {
+                if (DEBUG) {
+                    print("button type is hold");
+                }
+                return "hold";
+            } else if (buttonName.indexOf("Synchronize") !== NEGATIVE) {
+                if (DEBUG) {
+                    print("button type is synch");
+                }
+                var buttonPosition = Entities.getEntityProperties(_this.entityID, 'position').position;
+                Entities.findEntities(buttonPosition, SEARCH_RADIUS).forEach(function(element) {
+                    var name = Entities.getEntityProperties(element, 'name').name;
+                    if ((name.indexOf("Button") !== NEGATIVE) && (name.indexOf("Synchronize") !== NEGATIVE)) {
+                        if (DEBUG) {
+                            print("this button is " + _this.entityID);
+                        }
+                        if (_this.entityID !== element) {
+                            _this.sisterButton = element;
+                        }
+                        if (DEBUG) {
+                            print("sister button is " + _this.sisterButton);
+                        }
+                        var sisterColor = Entities.getEntityProperties(_this.sisterButton, 'color').color;
+                        if (DEBUG) {
+                            print("The initial sister color is " + JSON.stringify(sisterColor));
+                        }
+                        return;
+                    }
+                });
+                return "synch";
+            } else if (buttonName.indexOf("By Order") !== NEGATIVE) {
+                var parent = Entities.getEntityProperties(_this.entityID, 'parentID').parentID;
+                _this.parentID = parent;
+                if (DEBUG) {
+                    print("button type is order");
+                }
+                return "order";
+            } else if (buttonName.indexOf("Close") !== NEGATIVE) {
+                if (DEBUG) {
+                    print("button type is close");
+                }
+                return "close";
+            } else {
+                if (DEBUG) {
+                    print("Could not determine button type");
+                }
+            }
+        },
         /*
         reset: function() {
             if (boatSound) {
@@ -152,7 +207,18 @@
                     }
                     _this.lowerButton();
                     _this.changeColorToYellow();
-                    Entities.callEntityServerMethod(gate, 'openGate');
+                    if (sound.downloaded) {
+                    if (boatSound) {
+                        boatSound.stop();
+                    }
+                    boatSound = Audio.playSound(sound, {
+                        position: BOAT_SOUND_POSITION,
+                        volume: AUDIO_VOLUME_LEVEL
+                    });
+                    Entities.editEntity(BLOCK_BOAT_ACCESS, {
+                        collisionless: true
+                    });
+                    Entities.callEntityServerMethod(BOAT, 'approachIsland');
                     Script.setTimeout(function() {
                         _this.changeColorToRed();
                         _this.raiseButton();
