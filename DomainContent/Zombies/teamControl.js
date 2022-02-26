@@ -14,7 +14,7 @@
 
 (function() { // BEGIN LOCAL_SCOPE
 
-var TEAM_CONTROL_APP_BASE = "TeamControlApp.html";
+var TEAM_CONTROL_APP_BASE = "https://echads.github.io/hifi-content/DomainContent/Zombies/TeamControlApp.html";
 var TEAM_CONTROL_APP_URL = Script.resolvePath(TEAM_CONTROL_APP_BASE);
 var TEAM_CONTROL_LABEL = "TEAMS";
 var TEAM_CONTROL_APP_SORT_ORDER = 12;
